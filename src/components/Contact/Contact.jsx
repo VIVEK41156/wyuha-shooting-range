@@ -28,19 +28,37 @@ const Contact = () => {
       }
     );
 
-    gsap.set(map, {
-      rotationX: 65, rotationZ: -30, rotationY: 15,
-      scale: 0.7, opacity: 0, z: -500,
-      transformOrigin: 'center center'
-    });
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) {
+      gsap.set(map, {
+        rotationX: 65, rotationZ: -30, rotationY: 15,
+        scale: 0.7, opacity: 0, z: -500,
+        transformOrigin: 'center center'
+      });
+    } else {
+      gsap.set(map, { scale: 0.9, opacity: 0 });
+    }
 
     // Store ST reference to kill only this one on cleanup
     const st = ScrollTrigger.create({
       trigger: section,
       start: 'top 85%',
       toggleActions: 'play reverse play reverse',
-      onEnter: () => gsap.to(map, { duration: 1.2, rotationX: 0, rotationZ: 0, rotationY: 0, scale: 1, opacity: 1, z: 0, ease: 'power3.out' }),
-      onLeaveBack: () => gsap.to(map, { duration: 0.6, rotationX: 65, rotationZ: -30, rotationY: 15, scale: 0.7, opacity: 0, z: -500, ease: 'power2.in' }),
+      onEnter: () => {
+        if (!isMobile) {
+          gsap.to(map, { duration: 1.2, rotationX: 0, rotationZ: 0, rotationY: 0, scale: 1, opacity: 1, z: 0, ease: 'power3.out' });
+        } else {
+          gsap.to(map, { duration: 0.8, scale: 1, opacity: 1, ease: 'power2.out' });
+        }
+      },
+      onLeaveBack: () => {
+        if (!isMobile) {
+          gsap.to(map, { duration: 0.6, rotationX: 65, rotationZ: -30, rotationY: 15, scale: 0.7, opacity: 0, z: -500, ease: 'power2.in' });
+        } else {
+          gsap.to(map, { duration: 0.4, scale: 0.9, opacity: 0, ease: 'power2.in' });
+        }
+      },
     });
 
     return () => { st.kill(); };
