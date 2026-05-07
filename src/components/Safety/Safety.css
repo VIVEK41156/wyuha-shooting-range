@@ -1,0 +1,144 @@
+/* --- Safety 3D Section Wrapper --- */
+.safety-3d-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px; /* Crucial for Z-axis 3D flying effect */
+}
+
+/* --- Background Image --- */
+.safety-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.safety-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: 50% 50%;
+  filter: brightness(0.6);
+}
+
+.safety-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, #000 100%);
+  z-index: 1;
+}
+
+/* --- 3D Scene --- */
+.safety-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* --- Intro Text --- */
+.safety-intro {
+  position: absolute;
+  text-align: center;
+  max-width: 600px;
+  transform-style: preserve-3d;
+}
+
+.danger-badge {
+  color: #ff3b3b;
+  background: rgba(255, 59, 59, 0.1);
+  border: 1px solid rgba(255, 59, 59, 0.3);
+}
+
+.scroll-arrow {
+  color: #ff3b3b;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(15px); opacity: 1; filter: drop-shadow(0 0 10px rgba(255,59,59,0.8)); }
+}
+
+/* --- Flying Command Cards --- */
+.command-card-3d {
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  /* Placed extremely far back by default, GSAP handles the initial setting */
+  transform: translateZ(-2000px); 
+  opacity: 0;
+  will-change: transform, opacity;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+  /* The glass-dark class from About.css provides the base glass styling */
+}
+
+.command-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.command-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+}
+
+.command-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* Crosshairs decorations on cards */
+.card-crosshair {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.top-left { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.top-right { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .command-card-3d {
+    max-width: 90%;
+    padding: 30px 20px;
+  }
+  
+  .command-title {
+    font-size: 1.8rem;
+  }
+  
+  .command-desc {
+    font-size: 1rem;
+  }
+}

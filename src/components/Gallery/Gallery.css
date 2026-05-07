@@ -1,0 +1,142 @@
+/* --- Gallery Section --- */
+.gallery-section {
+  background-color: var(--bg-dark);
+  position: relative;
+  /* GSAP pin will automatically add the necessary scroll padding via a pin-spacer */
+}
+
+.gallery-sticky-wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-header {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  text-align: center;
+  width: 90%;
+  max-width: 700px;
+  pointer-events: none;
+}
+
+/* --- Coverflow Track --- */
+.gallery-3d-scene {
+  /* The track that will slide horizontally */
+  display: flex;
+  align-items: center;
+  gap: 2vw; 
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  height: 100vh;
+  width: max-content;
+}
+
+.gallery-item {
+  position: relative;
+  width: 50vw;
+  max-width: 800px;
+  height: 60vh;
+  max-height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--bg-surface);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform-origin: center center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(134, 59, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.expand-icon {
+  color: white;
+  transform: scale(0.5);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-item:hover .expand-icon {
+  transform: scale(1);
+}
+
+.gallery-progress-bar {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 50;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.gallery-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  width: 0%; 
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .gallery-item {
+    width: 60vw;
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-header {
+    top: 5vh;
+  }
+  .gallery-header h2 {
+    font-size: 2.5rem;
+  }
+  
+  .gallery-item {
+    width: 75vw;
+    height: 50vh;
+  }
+  .gallery-3d-scene {
+    gap: 4vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-header h2 {
+    font-size: 2rem;
+  }
+  .gallery-item {
+    width: 85vw;
+    height: 45vh;
+  }
+}

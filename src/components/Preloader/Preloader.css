@@ -1,0 +1,161 @@
+/* ============================================
+   PRELOADER — Full screen takeover
+   ============================================ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0c;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+/* Subtle grid background */
+.preloader-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(134, 59, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(134, 59, 255, 0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* === GUN === */
+.gun-wrapper {
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+.gun-svg {
+  width: 200px;
+  height: 80px;
+  filter: drop-shadow(0 0 20px rgba(134, 59, 255, 0.7));
+}
+
+/* Muzzle Flash */
+.muzzle-flash {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #ede6ff 20%, #863bff 50%, transparent 70%);
+  box-shadow: 0 0 30px 15px rgba(134, 59, 255, 0.8);
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+/* === BULLET === */
+.bullet-wrapper {
+  position: absolute;
+  left: calc(8% + 200px); /* Starts at gun muzzle position */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+.bullet {
+  width: 18px;
+  height: 8px;
+  background: linear-gradient(90deg, #ede6ff, #863bff);
+  border-radius: 0 50% 50% 0;
+  box-shadow: 0 0 10px rgba(134, 59, 255, 0.8);
+}
+
+.bullet-trail {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(134, 59, 255, 0.5));
+  margin-left: -20px; /* Behind bullet */
+}
+
+/* === TARGET / BULLSEYE === */
+.target-wrapper {
+  position: absolute;
+  right: 12%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.target-svg {
+  width: 160px;
+  height: 160px;
+  filter: drop-shadow(0 0 25px rgba(134, 59, 255, 0.5));
+  animation: targetPulse 2s ease-in-out infinite;
+}
+
+@keyframes targetPulse {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(134, 59, 255, 0.4)); }
+  50%       { filter: drop-shadow(0 0 30px rgba(134, 59, 255, 0.8)); }
+}
+
+/* Impact rings */
+.impact-ring {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid rgba(134, 59, 255, 0.8);
+  box-shadow: 0 0 20px rgba(134, 59, 255, 0.6);
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* === BRAND / LOGO === */
+.preloader-brand {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.preloader-logo {
+  height: 140px;
+  width: auto;
+  filter: drop-shadow(0 10px 30px rgba(134, 59, 255, 0.6));
+}
+
+.preloader-tagline {
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(134, 59, 255, 0.8);
+  white-space: nowrap;
+  will-change: opacity, transform;
+}
+
+/* === CURTAIN EXIT === */
+.preloader-curtain {
+  position: absolute;
+  inset: 0;
+  background: #0a0a0c;
+  transform-origin: top center;
+  transform: scaleY(0);
+  z-index: 2;
+}

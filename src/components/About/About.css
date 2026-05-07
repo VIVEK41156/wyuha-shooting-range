@@ -1,0 +1,219 @@
+/* --- 3D About Section Wrapper --- */
+.about-3d-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a0a0c; /* Deep tactical dark */
+  overflow: hidden;
+  perspective: 1000px; /* Enable 3D space */
+}
+
+/* --- Layers --- */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background Image Layer */
+.layer-bg {
+  z-index: 1;
+}
+
+.layer-lanes-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+}
+
+.dark-wood-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, rgba(10,10,12,0.9) 0%, rgba(10,10,12,0.4) 50%, rgba(10,10,12,0.9) 100%),
+    radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Coaches Layer */
+.layer-coaches {
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.coaches-img-wrapper {
+  position: relative;
+  width: 60%;
+  height: 90%;
+  margin-right: 5%;
+}
+
+.coaches-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 20px 20px 0 0;
+  box-shadow: -20px 0 50px rgba(0,0,0,0.8);
+}
+
+.coaches-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #0a0a0c 0%, transparent 40%),
+              linear-gradient(to top, #0a0a0c 0%, transparent 30%);
+  pointer-events: none;
+}
+
+/* --- Content Layer --- */
+.layer-content {
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through to background if needed */
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  height: 100%;
+}
+
+/* --- Cards --- */
+.about-card {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  border-radius: 24px;
+  pointer-events: auto;
+  transform-style: preserve-3d;
+}
+
+.about-card-1 {
+  left: 40px;
+}
+
+.about-card-2 {
+  left: 40px;
+  opacity: 0; /* Hidden initially, controlled by GSAP */
+}
+
+/* Premium Glassmorphism with Traditional Touch */
+.glass-dark {
+  background: rgba(20, 20, 24, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(134, 59, 255, 0.2);
+  border-top: 1px solid rgba(134, 59, 255, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.card-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Stats inside Card 1 */
+.card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 12px;
+  border-left: 3px solid var(--color-primary);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.stat-icon {
+  color: var(--color-primary-light);
+}
+
+.cyan-glow {
+  color: #47bfff; /* specific cyan for electronic lanes */
+  filter: drop-shadow(0 0 8px rgba(71, 191, 255, 0.6));
+}
+
+.electronic-desc {
+  font-size: 0.95rem;
+  color: #a0aec0;
+  font-style: italic;
+  border-left: 2px solid #47bfff;
+  padding-left: 16px;
+}
+
+/* List inside Card 2 */
+.coach-features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.coach-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.list-icon {
+  color: var(--color-primary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .coaches-img-wrapper {
+    width: 80%;
+    margin-right: -10%; /* Let it bleed off edge */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    max-width: calc(100% - 40px); /* 20px padding on each side */
+    left: 20px;
+    padding: 30px 20px;
+  }
+  
+  .coaches-img-wrapper {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .coaches-img-wrapper img {
+    border-radius: 0;
+  }
+  
+  .card-desc, .electronic-desc {
+    font-size: 0.95rem;
+  }
+}

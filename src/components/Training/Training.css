@@ -1,0 +1,137 @@
+/* --- Training 3D Section Wrapper --- */
+.training-3d-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Static Overlay Intro */
+.training-intro-overlay {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+}
+
+.scroll-hint {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; color: var(--color-primary-light); }
+  100% { opacity: 0.5; }
+}
+
+/* --- Slider Container --- */
+.training-slider {
+  display: flex;
+  width: 300vw; /* 3 panels * 100vw */
+  height: 100vh;
+}
+
+.training-panel {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10vw;
+  perspective: 1500px; /* Enable 3D space */
+}
+
+/* --- Panel Image (Background Parallax) --- */
+.panel-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.panel-image img {
+  width: 120%; /* Wider to allow parallax panning */
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  left: -10%;
+  position: relative;
+  filter: brightness(0.5);
+}
+
+.panel-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,10,12,0.9) 0%, rgba(10,10,12,0.3) 50%, rgba(10,10,12,0.9) 100%);
+}
+
+/* --- Panel Content (Glassmorphic) --- */
+.panel-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  padding: 50px;
+  border-radius: 24px;
+  transform-style: preserve-3d; /* For the GSAP 3D entry */
+}
+
+.panel-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(134, 59, 255, 0.1);
+  color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(134, 59, 255, 0.3);
+  box-shadow: 0 0 20px rgba(134, 59, 255, 0.2);
+}
+
+.panel-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.panel-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.mt-8 {
+  margin-top: 32px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .training-panel {
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .panel-content {
+    padding: 30px;
+  }
+  
+  .panel-title {
+    font-size: 2rem;
+  }
+}
