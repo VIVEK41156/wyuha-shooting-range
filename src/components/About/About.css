@@ -49,9 +49,9 @@
 
 .coaches-img-wrapper {
   position: relative;
-  width: 60%;
+  width: 65%;
   height: 90%;
-  margin-right: 5%;
+  margin-right: -5%; /* Bleed slightly off-screen to create room */
   perspective: 2000px;
 }
 
@@ -73,11 +73,11 @@
   transition: transform 0.5s ease;
 }
 
-.img-1 { top: 5%;  left: 5%;   transform: rotate(-10deg) translateZ(50px); z-index: 1; }
-.img-2 { top: 0%;  left: 45%;  transform: rotate(6deg)   translateZ(20px); z-index: 2; }
-.img-3 { top: 35%; left: 0%;   transform: rotate(4deg)   translateZ(80px); z-index: 5; }
-.img-4 { top: 30%; left: 42%;  transform: rotate(-6deg)  translateZ(40px); z-index: 3; }
-.img-6 { top: 58%; left: 20%;  transform: rotate(8deg)   translateZ(100px); z-index: 6; }
+.img-1 { top: 5%;  left: 15%;  transform: rotate(-10deg) translateZ(50px); z-index: 1; }
+.img-2 { top: 0%;  left: 55%;  transform: rotate(6deg)   translateZ(20px); z-index: 2; }
+.img-3 { top: 35%; left: 10%;  transform: rotate(4deg)   translateZ(80px); z-index: 5; }
+.img-4 { top: 30%; left: 52%;  transform: rotate(-6deg)  translateZ(40px); z-index: 3; }
+.img-6 { top: 58%; left: 30%;  transform: rotate(8deg)   translateZ(100px); z-index: 6; }
 
 .coaches-gradient {
   position: absolute;
