@@ -1,4 +1,4 @@
-﻿/* --- Training 3D Section Wrapper --- */
+/* --- Training 3D Section Wrapper --- */
 .training-3d-wrapper {
   width: 100vw;
   height: 100vh;
@@ -40,9 +40,12 @@
   display: flex;
   width: 300vw; /* 3 panels * 100vw */
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .training-panel {
+  flex: 0 0 100vw; /* Exact 100vw width, no shrinking */
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -62,19 +65,20 @@
 }
 
 .panel-image img {
-  width: 120%; /* Wider to allow parallax panning */
+  width: 125%; /* Slightly wider for smoother parallax */
   height: 100%;
   object-fit: cover;
   object-position: center;
-  left: -10%;
+  left: -12.5%;
   position: relative;
   filter: brightness(0.5);
 }
 
 .panel-gradient {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(10,10,12,0.9) 0%, rgba(10,10,12,0.3) 50%, rgba(10,10,12,0.9) 100%);
+  inset: -1px; /* Slight bleed to prevent sub-pixel gaps */
+  /* Remove double dark edges: fade from dark on left to transparent, or use a consistent dark overlay */
+  background: linear-gradient(90deg, rgba(10,10,12,0.95) 0%, rgba(10,10,12,0.4) 100%);
 }
 
 /* --- Panel Content (Glassmorphic) --- */
