@@ -1,4 +1,4 @@
-﻿/* --- 3D About Section Wrapper --- */
+/* --- 3D About Section Wrapper --- */
 .about-3d-wrapper {
   position: relative;
   width: 100vw;
@@ -52,23 +52,40 @@
   width: 60%;
   height: 90%;
   margin-right: 5%;
+  perspective: 2000px;
 }
 
-.coaches-img-wrapper img {
+.collage-inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 20px 20px 0 0;
-  box-shadow: -20px 0 50px rgba(0,0,0,0.8);
+  transform-style: preserve-3d;
 }
+
+.collage-img {
+  position: absolute;
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 6px solid #fff;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  transition: transform 0.5s ease;
+}
+
+.img-1 { top: 10%; left: 10%; transform: rotate(-8deg) translateZ(50px); z-index: 1; }
+.img-2 { top: 5%;  left: 45%; transform: rotate(5deg)  translateZ(20px); z-index: 2; }
+.img-3 { top: 35%; left: 5%;  transform: rotate(3deg)  translateZ(80px); z-index: 5; }
+.img-4 { top: 30%; left: 40%; transform: rotate(-5deg) translateZ(40px); z-index: 3; }
+.img-5 { top: 60%; left: 15%; transform: rotate(7deg)  translateZ(100px); z-index: 6; }
+.img-6 { top: 55%; left: 50%; transform: rotate(-3deg) translateZ(30px); z-index: 4; }
 
 .coaches-gradient {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #0a0a0c 0%, transparent 40%),
-              linear-gradient(to top, #0a0a0c 0%, transparent 30%);
+  inset: -100px;
+  background: radial-gradient(circle at 70% 50%, transparent 20%, #0a0a0c 80%);
   pointer-events: none;
+  z-index: 10;
 }
 
 /* --- Content Layer --- */

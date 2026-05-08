@@ -7,6 +7,13 @@ import './About.css';
 
 // Plugin registered globally in main.jsx
 
+import img1 from '../../assets/image-1.webp';
+import img2 from '../../assets/image-2.webp';
+import img3 from '../../assets/image-3.webp';
+import img4 from '../../assets/image-4.webp';
+import img5 from '../../assets/image-5.webp';
+import img6 from '../../assets/image-6.webp';
+
 const About = () => {
   const containerRef = useRef(null);
 
@@ -55,8 +62,15 @@ const About = () => {
       </div>
 
       <div className="parallax-layer layer-coaches">
-        <div className="coaches-img-wrapper">
-          <img src="/school_coaches.png" alt="Professional Shooting Instructors" loading="lazy" decoding="async" />
+        <div className="coaches-img-wrapper about-collage">
+          <div className="collage-inner">
+            <img src={img1} alt="Facility 1" className="collage-img img-1" />
+            <img src={img2} alt="Facility 2" className="collage-img img-2" />
+            <img src={img3} alt="Facility 3" className="collage-img img-3" />
+            <img src={img4} alt="Facility 4" className="collage-img img-4" />
+            <img src={img5} alt="Facility 5" className="collage-img img-5" />
+            <img src={img6} alt="Facility 6" className="collage-img img-6" />
+          </div>
           <div className="coaches-gradient"></div>
         </div>
       </div>
