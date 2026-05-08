@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Crosshair, ChevronRight } from 'lucide-react';
+import heroBgVideo from '../../assets/hero.bg.mp4';
 import './Hero.css';
 
 // Plugin registered globally in main.jsx
@@ -48,14 +49,14 @@ const Hero = ({ openModal }) => {
     <section id="home" className="hero-section" ref={containerRef}>
       {/* Background Video */}
       <div className="hero-video-container">
-        <iframe
-          className="hero-youtube"
-          src="https://www.youtube.com/embed/ngilXOp7piE?autoplay=1&mute=1&loop=1&playlist=ngilXOp7piE&controls=0&showinfo=0&rel=0&playsinline=1"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-          title="Shooting Range Video"
-        ></iframe>
+        <video
+          className="hero-video"
+          src={heroBgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+        ></video>
         <div className="hero-overlay"></div>
       </div>
 
