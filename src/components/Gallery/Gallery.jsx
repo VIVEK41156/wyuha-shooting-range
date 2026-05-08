@@ -4,16 +4,20 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Gallery.css';
 
-// Plugin registered globally in main.jsx
+import img1 from '../../assets/image-1.webp';
+import img2 from '../../assets/image-2.webp';
+import img3 from '../../assets/image-3.webp';
+import img4 from '../../assets/image-4.webp';
+import img5 from '../../assets/image-5.webp';
+import img6 from '../../assets/image-6.webp';
 
 const galleryImages = [
-  { id: 1, url: 'https://picsum.photos/seed/wyuha1/1200/800' },
-  { id: 2, url: 'https://picsum.photos/seed/wyuha2/1200/800' },
-  { id: 3, url: 'https://picsum.photos/seed/wyuha3/1200/800' },
-  { id: 4, url: 'https://picsum.photos/seed/wyuha4/1200/800' },
-  { id: 5, url: 'https://picsum.photos/seed/wyuha5/1200/800' },
-  { id: 6, url: 'https://picsum.photos/seed/wyuha6/1200/800' },
-  { id: 7, url: 'https://picsum.photos/seed/wyuha7/1200/800' },
+  { id: 1, url: img1 },
+  { id: 2, url: img2 },
+  { id: 3, url: img3 },
+  { id: 4, url: img4 },
+  { id: 5, url: img5 },
+  { id: 6, url: img6 },
 ];
 
 const Gallery = () => {
