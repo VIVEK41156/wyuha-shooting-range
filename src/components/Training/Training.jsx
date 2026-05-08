@@ -22,7 +22,7 @@ const programs = [
     subtitle: 'Tactical Dynamics',
     description: 'Elevate your skills from static shooting to dynamic movement. Focus on rapid target acquisition, barricade drills, and handling modern sporting rifles under controlled stress.',
     icon: Zap,
-    image: '/training_intermediate_new.png',
+    image: '/training_intermediate_perfect.png',
   },
   {
     id: 'competitive',
