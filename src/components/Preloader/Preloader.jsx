@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './Preloader.css';
 
@@ -168,24 +168,24 @@ const Preloader = ({ onComplete }) => {
 
         <svg className="gun-svg" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Barrel */}
-          <rect x="80" y="28" width="115" height="12" rx="4" fill="#863bff" opacity="0.9"/>
+          <rect x="80" y="28" width="115" height="12" rx="4" fill="#7A0F18" opacity="0.9"/>
           {/* Barrel tip highlight */}
-          <rect x="185" y="28" width="10" height="12" rx="2" fill="#ede6ff"/>
+          <rect x="185" y="28" width="10" height="12" rx="2" fill="#f5d0d2"/>
           {/* Slide */}
           <rect x="70" y="22" width="100" height="20" rx="5" fill="#6b2ee0"/>
           {/* Ejection port */}
           <rect x="100" y="24" width="30" height="8" rx="2" fill="#0a0a0c"/>
           {/* Frame / body */}
-          <path d="M70 38 L75 60 Q77 65 82 65 L120 65 Q125 65 127 60 L130 38 Z" fill="#7e14ff"/>
+          <path d="M70 38 L75 60 Q77 65 82 65 L120 65 Q125 65 127 60 L130 38 Z" fill="#5a0a11"/>
           {/* Grip */}
           <rect x="80" y="60" width="35" height="18" rx="4" fill="#5a10c0"/>
           {/* Trigger guard */}
           <path d="M90 55 Q105 70 120 55" stroke="#4a0ea0" strokeWidth="4" fill="none" strokeLinecap="round"/>
           {/* Trigger */}
-          <rect x="100" y="52" width="5" height="12" rx="2" fill="#ede6ff" opacity="0.8"/>
+          <rect x="100" y="52" width="5" height="12" rx="2" fill="#f5d0d2" opacity="0.8"/>
           {/* Sight */}
-          <rect x="80" y="20" width="6" height="4" rx="1" fill="#ede6ff" opacity="0.6"/>
-          <rect x="155" y="20" width="10" height="4" rx="1" fill="#ede6ff" opacity="0.6"/>
+          <rect x="80" y="20" width="6" height="4" rx="1" fill="#f5d0d2" opacity="0.6"/>
+          <rect x="155" y="20" width="10" height="4" rx="1" fill="#f5d0d2" opacity="0.6"/>
         </svg>
       </div>
 
@@ -203,21 +203,21 @@ const Preloader = ({ onComplete }) => {
         ))}
         <svg className="target-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
           {/* Outer ring */}
-          <circle cx="60" cy="60" r="55" stroke="#863bff" strokeWidth="3" fill="none" opacity="0.5"/>
+          <circle cx="60" cy="60" r="55" stroke="#7A0F18" strokeWidth="3" fill="none" opacity="0.5"/>
           {/* Ring 4 */}
-          <circle cx="60" cy="60" r="44" stroke="#863bff" strokeWidth="2" fill="none" opacity="0.6"/>
+          <circle cx="60" cy="60" r="44" stroke="#7A0F18" strokeWidth="2" fill="none" opacity="0.6"/>
           {/* Ring 3 */}
-          <circle cx="60" cy="60" r="33" stroke="#863bff" strokeWidth="2.5" fill="none" opacity="0.7"/>
+          <circle cx="60" cy="60" r="33" stroke="#7A0F18" strokeWidth="2.5" fill="none" opacity="0.7"/>
           {/* Ring 2 */}
-          <circle cx="60" cy="60" r="22" stroke="#ede6ff" strokeWidth="2.5" fill="#863bff" fillOpacity="0.2" opacity="0.85"/>
+          <circle cx="60" cy="60" r="22" stroke="#f5d0d2" strokeWidth="2.5" fill="#7A0F18" fillOpacity="0.2" opacity="0.85"/>
           {/* Bullseye */}
-          <circle cx="60" cy="60" r="10" fill="#863bff" opacity="0.95"/>
+          <circle cx="60" cy="60" r="10" fill="#7A0F18" opacity="0.95"/>
           <circle cx="60" cy="60" r="4" fill="#ffffff"/>
           {/* Crosshair lines */}
-          <line x1="60" y1="0" x2="60" y2="40" stroke="#863bff" strokeWidth="1.5" opacity="0.4"/>
-          <line x1="60" y1="80" x2="60" y2="120" stroke="#863bff" strokeWidth="1.5" opacity="0.4"/>
-          <line x1="0" y1="60" x2="40" y2="60" stroke="#863bff" strokeWidth="1.5" opacity="0.4"/>
-          <line x1="80" y1="60" x2="120" y2="60" stroke="#863bff" strokeWidth="1.5" opacity="0.4"/>
+          <line x1="60" y1="0" x2="60" y2="40" stroke="#7A0F18" strokeWidth="1.5" opacity="0.4"/>
+          <line x1="60" y1="80" x2="60" y2="120" stroke="#7A0F18" strokeWidth="1.5" opacity="0.4"/>
+          <line x1="0" y1="60" x2="40" y2="60" stroke="#7A0F18" strokeWidth="1.5" opacity="0.4"/>
+          <line x1="80" y1="60" x2="120" y2="60" stroke="#7A0F18" strokeWidth="1.5" opacity="0.4"/>
         </svg>
       </div>
 

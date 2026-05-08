@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -34,7 +34,7 @@ const commands = [
     title: 'RANGE IS HOT',
     description: 'The line is active. Shooters may approach the bench, load their firearms, and commence firing at their designated targets.',
     icon: Target,
-    color: '#863bff',
+    color: '#7A0F18',
   }
 ];
 

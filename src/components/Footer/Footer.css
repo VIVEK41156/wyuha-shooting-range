@@ -1,4 +1,4 @@
-.site-footer {
+﻿.site-footer {
   background-color: var(--bg-dark);
   border-top: 1px solid var(--border-glass);
   padding: 80px 0 20px;
@@ -18,7 +18,7 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
   opacity: 0.5;
-  box-shadow: 0 0 30px 5px rgba(134, 59, 255, 0.2);
+  box-shadow: 0 0 30px 5px rgba(122, 15, 24, 0.2);
 }
 
 .footer-container {
@@ -201,7 +201,7 @@
   color: #ffffff;
   border-color: var(--color-primary);
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(134, 59, 255, 0.4);
+  box-shadow: 0 10px 20px rgba(122, 15, 24, 0.4);
 }
 
 .social-icon.linkedin:hover {

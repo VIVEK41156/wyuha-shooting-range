@@ -1,4 +1,4 @@
-/* --- 3D About Section Wrapper --- */
+﻿/* --- 3D About Section Wrapper --- */
 .about-3d-wrapper {
   position: relative;
   width: 100vw;
@@ -115,8 +115,8 @@
   background: rgba(20, 20, 24, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(134, 59, 255, 0.2);
-  border-top: 1px solid rgba(134, 59, 255, 0.4);
+  border: 1px solid rgba(122, 15, 24, 0.2);
+  border-top: 1px solid rgba(122, 15, 24, 0.4);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
               inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }

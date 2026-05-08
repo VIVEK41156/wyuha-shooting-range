@@ -1,4 +1,4 @@
-/* --- Contact Section --- */
+﻿/* --- Contact Section --- */
 .contact-section {
   padding: 60px 0;
   background-color: var(--bg-surface);
@@ -54,14 +54,14 @@
 
 .info-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(134, 59, 255, 0.4);
+  border-color: rgba(122, 15, 24, 0.4);
 }
 
 .info-icon {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: rgba(134, 59, 255, 0.1);
+  background: rgba(122, 15, 24, 0.1);
   color: var(--color-primary-light);
   display: flex;
   align-items: center;
@@ -136,7 +136,7 @@
   outline: none;
   border-color: var(--color-primary);
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 15px rgba(134, 59, 255, 0.2);
+  box-shadow: 0 0 15px rgba(122, 15, 24, 0.2);
 }
 
 .form-submit {
@@ -193,8 +193,8 @@
   inset: 0;
   border-radius: 20px;
   overflow: hidden;
-  border: 2px solid rgba(134, 59, 255, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(134, 59, 255, 0.15);
+  border: 2px solid rgba(122, 15, 24, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(122, 15, 24, 0.15);
   will-change: transform;
   transform-style: preserve-3d;
   background: var(--bg-dark);

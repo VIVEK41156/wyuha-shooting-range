@@ -1,4 +1,4 @@
-/* --- Desktop Navbar — CSS slide-in replaces Framer Motion --- */
+﻿/* --- Desktop Navbar — CSS slide-in replaces Framer Motion --- */
 .navbar-desktop {
   position: fixed;
   top: 0;
@@ -113,7 +113,7 @@
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(134, 59, 255, 0.7);
+  box-shadow: 0 0 25px rgba(122, 15, 24, 0.7);
 }
 
 /* --- Mobile Bottom Navbar --- */

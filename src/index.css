@@ -1,18 +1,18 @@
-/* Font is now loaded via <link> in index.html — no render-blocking @import needed */
+﻿/* Font is now loaded via <link> in index.html — no render-blocking @import needed */
 
 :root {
-  --color-primary: #863bff;
-  --color-primary-dark: #7e14ff;
-  --color-primary-light: #ede6ff;
+  --color-primary: #7A0F18;
+  --color-primary-dark: #5a0a11;
+  --color-primary-light: #f5d0d2;
   --color-accent: #47bfff;
   --bg-dark: #0a0a0c;
   --bg-surface: #141418;
   --bg-glass: rgba(20, 20, 24, 0.7);
-  --bg-glass-hover: rgba(134, 59, 255, 0.1);
+  --bg-glass-hover: rgba(122, 15, 24, 0.1);
   --text-main: #ffffff;
   --text-muted: #a1a1aa;
   --border-glass: rgba(255, 255, 255, 0.08);
-  --shadow-neon: 0 0 15px rgba(134, 59, 255, 0.5);
+  --shadow-neon: 0 0 15px rgba(122, 15, 24, 0.5);
   --shadow-neon-accent: 0 0 15px rgba(71, 191, 255, 0.5);
 }
 

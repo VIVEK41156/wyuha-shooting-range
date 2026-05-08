@@ -1,4 +1,4 @@
-/* --- Gallery Section --- */
+﻿/* --- Gallery Section --- */
 .gallery-section {
   background-color: var(--bg-dark);
   position: relative;
@@ -62,7 +62,7 @@
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(134, 59, 255, 0.4);
+  background: rgba(122, 15, 24, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;

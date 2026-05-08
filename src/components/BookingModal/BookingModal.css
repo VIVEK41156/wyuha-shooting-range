@@ -1,4 +1,4 @@
-.modal-backdrop {
+﻿.modal-backdrop {
   position: fixed;
   inset: 0;
   background-color: rgba(5, 5, 8, 0.8);
@@ -16,10 +16,10 @@
   width: 100%;
   max-width: 500px;
   background: rgba(20, 20, 24, 0.95);
-  border: 1px solid rgba(134, 59, 255, 0.3);
+  border: 1px solid rgba(122, 15, 24, 0.3);
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(134, 59, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(122, 15, 24, 0.2);
   transform-style: preserve-3d;
 }
 
@@ -103,7 +103,7 @@
   outline: none;
   border-color: var(--color-primary);
   background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 15px rgba(134, 59, 255, 0.2);
+  box-shadow: 0 0 15px rgba(122, 15, 24, 0.2);
 }
 
 .modal-submit {
