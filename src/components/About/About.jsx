@@ -44,11 +44,19 @@ const About = () => {
       { y: '10%', opacity: 1, scale: 1, duration: 2.5, ease: 'power2.out' },
       '<'
     )
+    // --- Collage Assembly Animation ---
+    .fromTo('.img-1', { x: -200, y: -200, rotation: -45, opacity: 0 }, { x: 0, y: 0, rotation: -8, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.2')
+    .fromTo('.img-2', { x: 200,  y: -200, rotation: 45,  opacity: 0 }, { x: 0, y: 0, rotation: 5,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+    .fromTo('.img-3', { x: -300, y: 0,    rotation: -30, opacity: 0 }, { x: 0, y: 0, rotation: 3,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+    .fromTo('.img-4', { x: 300,  y: 0,    rotation: 30,  opacity: 0 }, { x: 0, y: 0, rotation: -5, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+    .fromTo('.img-5', { x: -200, y: 200,  rotation: -60, opacity: 0 }, { x: 0, y: 0, rotation: 7,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+    .fromTo('.img-6', { x: 200,  y: 200,  rotation: 60,  opacity: 0 }, { x: 0, y: 0, rotation: -3, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+    // ----------------------------------
     .to('.layer-lanes-img', { opacity: 0.2, duration: 1 }, '<')
     .fromTo('.about-card-2',
       { opacity: 0, x: -100, rotationY: -15 },
       { opacity: 1, x: 0, rotationY: 0, duration: 1.5, ease: 'power2.out' },
-      '-=1'
+      '-=1.5'
     )
     .to({}, { duration: 1 });
 
@@ -78,42 +86,39 @@ const About = () => {
       <div className="parallax-layer layer-content">
         <div className="content-container">
           <div className="about-card about-card-1 glass-dark">
-            <div className="section-badge">The Facility</div>
+            <div className="section-badge">Our Mission</div>
             <h2 className="section-title">
-              Traditional Feel. <br />
-              <span className="highlight">Tactical Precision.</span>
+              Promoting <span className="highlight">Excellence.</span>
             </h2>
             <p className="card-desc">
-              Wyuha is built on a massive 15-lane setup designed to accommodate both traditional marksmen and modern tactical operators. The environment blends deep wood accents with state-of-the-art ballistic containment.
+              With an aim to promote sports excellence and holistic development, we have established ‘Wyuha’ - a dedicated target shooting facility in Mangadu, Chennai.
             </p>
-            <div className="card-stats">
-              <div className="stat">
-                <Target className="stat-icon" />
-                <span>15 High-Caliber Lanes</span>
-              </div>
-              <div className="stat">
-                <Crosshair className="stat-icon cyan-glow" />
-                <span>3 Electronic Precision Lanes</span>
-              </div>
-            </div>
-            <p className="electronic-desc">
-              Experience the future of shooting with our 3 advanced electronic lanes, featuring auto-scoring, dynamic scenarios, and instant shot-placement feedback on tactical touch screens.
+            <p className="card-desc">
+              We believe that introducing precision sports at a young age fosters discipline, focus, and mental acuity. Our new range is designed to support training in Air Pistol and Air Rifle disciplines, providing our students with much-needed exposure to this renowned and esteemed sport.
             </p>
           </div>
 
           <div className="about-card about-card-2 glass-dark">
-            <div className="section-badge">The Mentors</div>
+            <div className="section-badge">The Facility</div>
             <h2 className="section-title">
-              Elite <span className="highlight">Guidance.</span>
+              15-Lane <span className="highlight">Setup.</span>
             </h2>
             <p className="card-desc">
-              Precision isn't born; it's forged. Wyuha is home to 2 of the region's most elite tactical coaches. With decades of combined experience in law enforcement and competitive marksmanship, they are here to refine your trigger control, stance, and target acquisition.
+              The facility features a 15-lane shooting range, meticulously configured to support both traditional and advanced training needs:
             </p>
-            <ul className="coach-features">
-              <li><Users className="list-icon"/> 1-on-1 Tactical Coaching</li>
-              <li><Target className="list-icon"/> Stress-Scenario Training</li>
-              <li><Crosshair className="list-icon"/> Advanced Ballistics Theory</li>
-            </ul>
+            <div className="card-stats">
+              <div className="stat">
+                <Target className="stat-icon" />
+                <span>12 Manual Precision Lanes</span>
+              </div>
+              <div className="stat">
+                <Crosshair className="stat-icon cyan-glow" />
+                <span>3 Electronic Target Lanes</span>
+              </div>
+            </div>
+            <p className="electronic-desc">
+              Providing our students with elite exposure to international-standard equipment.
+            </p>
           </div>
         </div>
       </div>
