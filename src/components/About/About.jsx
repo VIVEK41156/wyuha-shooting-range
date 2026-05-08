@@ -50,13 +50,13 @@ const About = () => {
   return (
     <section id="about" className="about-3d-wrapper" ref={containerRef}>
       <div className="parallax-layer layer-bg">
-        <img src="/range_lanes.png" alt="15-Lane Shooting Range" className="layer-lanes-img" loading="lazy" decoding="async" />
+        <img src="/about_bg_indian.png" alt="15-Lane Shooting Range" className="layer-lanes-img" loading="lazy" decoding="async" />
         <div className="layer-overlay dark-wood-overlay"></div>
       </div>
 
       <div className="parallax-layer layer-coaches">
         <div className="coaches-img-wrapper">
-          <img src="/expert_coaches.png" alt="Expert Coaches" loading="lazy" decoding="async" />
+          <img src="/about_coaches_indian.png" alt="Expert Coaches" loading="lazy" decoding="async" />
           <div className="coaches-gradient"></div>
         </div>
       </div>
