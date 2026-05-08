@@ -71,7 +71,7 @@ const Contact = () => {
         <div className="contact-header" ref={headerRef}>
           <div className="section-badge mx-auto">Get In Touch</div>
           <h2 className="section-title text-center">
-            Ready to <span className="highlight">Deploy?</span>
+            Get in touch <span className="highlight">with us</span>
           </h2>
         </div>
 
