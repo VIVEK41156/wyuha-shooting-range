@@ -11,7 +11,6 @@ import img1 from '../../assets/image-1.webp';
 import img2 from '../../assets/image-2.webp';
 import img3 from '../../assets/image-3.webp';
 import img4 from '../../assets/image-4.webp';
-import img5 from '../../assets/image-5.webp';
 import img6 from '../../assets/image-6.webp';
 
 const About = () => {
@@ -49,7 +48,6 @@ const About = () => {
     .fromTo('.img-2', { x: 200,  y: -200, rotation: 45,  opacity: 0 }, { x: 0, y: 0, rotation: 5,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
     .fromTo('.img-3', { x: -300, y: 0,    rotation: -30, opacity: 0 }, { x: 0, y: 0, rotation: 3,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
     .fromTo('.img-4', { x: 300,  y: 0,    rotation: 30,  opacity: 0 }, { x: 0, y: 0, rotation: -5, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-    .fromTo('.img-5', { x: -200, y: 200,  rotation: -60, opacity: 0 }, { x: 0, y: 0, rotation: 7,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
     .fromTo('.img-6', { x: 200,  y: 200,  rotation: 60,  opacity: 0 }, { x: 0, y: 0, rotation: -3, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
     // ----------------------------------
     .to('.layer-lanes-img', { opacity: 0.2, duration: 1 }, '<')
@@ -76,7 +74,6 @@ const About = () => {
             <img src={img2} alt="Facility 2" className="collage-img img-2" />
             <img src={img3} alt="Facility 3" className="collage-img img-3" />
             <img src={img4} alt="Facility 4" className="collage-img img-4" />
-            <img src={img5} alt="Facility 5" className="collage-img img-5" />
             <img src={img6} alt="Facility 6" className="collage-img img-6" />
           </div>
           <div className="coaches-gradient"></div>

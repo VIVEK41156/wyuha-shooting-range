@@ -64,8 +64,8 @@
 
 .collage-img {
   position: absolute;
-  width: 320px;
-  height: 220px;
+  width: 350px;
+  height: 240px;
   object-fit: cover;
   border-radius: 12px;
   border: 6px solid #fff;
@@ -73,12 +73,11 @@
   transition: transform 0.5s ease;
 }
 
-.img-1 { top: 10%; left: 10%; transform: rotate(-8deg) translateZ(50px); z-index: 1; }
-.img-2 { top: 5%;  left: 45%; transform: rotate(5deg)  translateZ(20px); z-index: 2; }
-.img-3 { top: 35%; left: 5%;  transform: rotate(3deg)  translateZ(80px); z-index: 5; }
-.img-4 { top: 30%; left: 40%; transform: rotate(-5deg) translateZ(40px); z-index: 3; }
-.img-5 { top: 60%; left: 15%; transform: rotate(7deg)  translateZ(100px); z-index: 6; }
-.img-6 { top: 55%; left: 50%; transform: rotate(-3deg) translateZ(30px); z-index: 4; }
+.img-1 { top: 5%;  left: 5%;   transform: rotate(-10deg) translateZ(50px); z-index: 1; }
+.img-2 { top: 0%;  left: 45%;  transform: rotate(6deg)   translateZ(20px); z-index: 2; }
+.img-3 { top: 35%; left: 0%;   transform: rotate(4deg)   translateZ(80px); z-index: 5; }
+.img-4 { top: 30%; left: 42%;  transform: rotate(-6deg)  translateZ(40px); z-index: 3; }
+.img-6 { top: 58%; left: 20%;  transform: rotate(8deg)   translateZ(100px); z-index: 6; }
 
 .coaches-gradient {
   position: absolute;
