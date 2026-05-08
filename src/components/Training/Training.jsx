@@ -14,7 +14,7 @@ const programs = [
     subtitle: 'Foundation & Safety',
     description: 'Master the absolute core principles of firearm safety, handling, and basic marksmanship in a highly controlled, welcoming environment. Perfect for first-time shooters looking to build confidence.',
     icon: ShieldCheck,
-    image: '/beginner_training.png',
+    image: '/training_beginner_new.png',
   },
   {
     id: 'intermediate',
@@ -22,7 +22,7 @@ const programs = [
     subtitle: 'Tactical Dynamics',
     description: 'Elevate your skills from static shooting to dynamic movement. Focus on rapid target acquisition, barricade drills, and handling modern sporting rifles under controlled stress.',
     icon: Zap,
-    image: '/intermediate_training.png',
+    image: '/training_intermediate_new.png',
   },
   {
     id: 'competitive',
@@ -30,7 +30,7 @@ const programs = [
     subtitle: 'Elite Precision',
     description: 'Refine your accuracy to a surgical level. Designed for aspiring competitive shooters and snipers. Focuses intensely on breathing, trigger control, and advanced ballistics over long distances.',
     icon: Crosshair,
-    image: '/competitive_training.png',
+    image: '/training_competitive_new.png',
   }
 ];
 
