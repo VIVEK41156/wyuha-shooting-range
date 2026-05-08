@@ -150,9 +150,10 @@
 /* T&C Checkbox — single line */
 .tc-checkbox-label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   cursor: pointer;
+  margin-top: 4px;
 }
 
 .tc-checkbox {
@@ -161,12 +162,14 @@
   min-width: 16px;           /* Prevent shrinking */
   accent-color: var(--color-primary);
   cursor: pointer;
+  margin-top: 2px;
 }
 
 .tc-checkbox-label span {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.4;
+  word-break: break-word;
 }
 
 /* --- Right Column: 3D Map --- */
@@ -230,29 +233,42 @@
 @media (max-width: 768px) {
   .contact-section {
     padding: 50px 0;
+    overflow: visible; /* Prevent clipping */
   }
   
   .contact-container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
   
   .contact-info {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   
+  .info-card {
+    padding: 16px;
+  }
+  
+  .contact-form-container {
+    padding: 20px 16px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
 
   .contact-right-col {
-    min-height: 300px;
-    height: 300px; /* Fixed height for mobile map */
+    min-height: 350px;
+    height: 350px; /* Fixed height for mobile map */
     margin-top: 20px;
+    width: 100%;
   }
 
   .map-3d-wrapper {
-    position: relative; /* Switch to relative on mobile */
+    position: absolute; /* Revert back to absolute */
+    inset: 0;
     height: 100%;
+    width: 100%;
     transform: none !important; /* Force reset any 3D transforms */
   }
 }
