@@ -1,0 +1,79 @@
+/* Hide native cursor site-wide */
+* {
+  cursor: none !important;
+}
+
+/* Wrapper — fixed, centred on mouse via GSAP translate */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  /* offset so centre of SVG aligns with mouse tip */
+  translate: -50% -50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+}
+
+/* ── Pulsing rings SVG ── */
+.cc-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.cc-ring {
+  fill: none;
+  stroke: #7A0F18;
+  stroke-width: 1.6;
+  opacity: 0.55;
+  transform-origin: 60px 60px;
+}
+
+.cc-ring:nth-child(1) { stroke-width: 1;   opacity: 0.25; }
+.cc-ring:nth-child(2) { stroke-width: 1.2; opacity: 0.38; }
+.cc-ring:nth-child(3) { stroke-width: 1.5; opacity: 0.52; }
+.cc-ring:nth-child(4) { stroke-width: 1.8; opacity: 0.68; stroke: #c0303c; }
+
+/* ── Crosshair SVG ── */
+.cc-crosshair {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform-origin: 50% 50%;
+}
+
+.cc-crosshair line {
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+/* ── Centre dot ── */
+.cc-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  translate: -50% -50%;
+  box-shadow:
+    0 0 0 2px #7A0F18,
+    0 0 10px rgba(122, 15, 24, 0.9),
+    0 0 20px rgba(122, 15, 24, 0.5);
+  transform-origin: center;
+}
+
+/* ── Glowing red drop-shadow on whole cursor ── */
+.custom-cursor {
+  filter: drop-shadow(0 0 6px rgba(122, 15, 24, 0.8))
+          drop-shadow(0 0 14px rgba(122, 15, 24, 0.4));
+}

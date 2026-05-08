@@ -2,6 +2,7 @@ import React, { useState, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Preloader from './components/Preloader/Preloader';
+import CustomCursor from './components/CustomCursor/CustomCursor';
 import './App.css';
 
 // Lazy-load below-the-fold sections — splits them into separate JS chunks
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       {isLoading && (
         <Preloader onComplete={() => setIsLoading(false)} />
       )}
