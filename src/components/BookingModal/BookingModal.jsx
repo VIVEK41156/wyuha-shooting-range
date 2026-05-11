@@ -87,7 +87,7 @@ const BookingModal = ({ isOpen, onClose }) => {
             <div className="modal-content">
               {isSubmitted ? (
                 <div className="modal-thank-you">
-                  <img src="/logo.svg" alt="Wyuha Logo" className="modal-thank-you-logo" />
+                  <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="Wyuha Logo" className="modal-thank-you-logo" />
                   <div className="success-icon-wrapper">
                     <CheckCircle2 size={64} className="success-icon" />
                   </div>

@@ -115,7 +115,7 @@ const Contact = () => {
               {isSubmitted ? (
                 <div className="thank-you-container">
                   <div className="thank-you-content">
-                    <img src="/logo.svg" alt="Wyuha Logo" className="thank-you-logo" />
+                    <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="Wyuha Logo" className="modal-thank-you-logo" />
                     <div className="success-icon-wrapper">
                       <CheckCircle2 size={64} className="success-icon" />
                     </div>
