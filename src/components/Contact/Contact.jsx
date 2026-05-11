@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import React, { useRef, useEffect, useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Contact.css';
@@ -12,6 +12,9 @@ const Contact = () => {
   const headerRef = useRef(null);
   const infoRef = useRef(null);
   const formRef = useRef(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -109,61 +112,86 @@ const Contact = () => {
             </div>
 
             <div className="contact-form-container" ref={formRef}>
-              <form className="contact-form" onSubmit={async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                const data = {
-                  fullName: form.name.value,
-                  email: form.email.value,
-                  phone: form.phone.value,
-                  message: form.message.value,
-                  termsAccepted: form['tc-contact'].checked
-                };
-                
-                try {
-                  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-                  const res = await fetch(`${apiUrl}/api/contact`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                  });
-                  if (!res.ok) {
-                     const errData = await res.json();
-                     alert("Error: " + JSON.stringify(errData));
-                  } else {
-                     alert("Message sent successfully!");
-                     form.reset();
+              {isSubmitted ? (
+                <div className="thank-you-container">
+                  <div className="thank-you-content">
+                    <img src="/logo.svg" alt="Wyuha Logo" className="thank-you-logo" />
+                    <div className="success-icon-wrapper">
+                      <CheckCircle2 size={64} className="success-icon" />
+                    </div>
+                    <h2>Thank You!</h2>
+                    <p>Your message has been received. We will get back to you shortly.</p>
+                    <button 
+                      className="btn-primary" 
+                      onClick={() => setIsSubmitted(false)}
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form className="contact-form" onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (isSubmitting) return;
+                  
+                  setIsSubmitting(true);
+                  const form = e.target;
+                  const data = {
+                    fullName: form.name.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    message: form.message.value,
+                    termsAccepted: form['tc-contact'].checked
+                  };
+                  
+                  try {
+                    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+                    const res = await fetch(`${apiUrl}/api/contact`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(data)
+                    });
+                    
+                    if (!res.ok) {
+                       const errData = await res.json();
+                       alert("Error: " + (errData.error || "Submission failed"));
+                    } else {
+                       setIsSubmitted(true);
+                       form.reset();
+                    }
+                  } catch(err) {
+                    alert("Failed to connect to the server. Please try again later.");
+                  } finally {
+                    setIsSubmitting(false);
                   }
-                } catch(err) {
-                  alert("Failed to connect to the server.");
-                }
-              }}>
-                <div className="form-group">
-                  <label htmlFor="name">Full Name</label>
-                  <input type="text" id="name" required placeholder="John Doe" />
-                </div>
-                <div className="form-row">
+                }}>
                   <div className="form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="email" id="email" required placeholder="john@example.com" />
+                    <label htmlFor="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="John Doe" disabled={isSubmitting} />
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="email">Email Address</label>
+                      <input type="email" id="email" required placeholder="john@example.com" disabled={isSubmitting} />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="phone">Phone Number</label>
+                      <input type="tel" id="phone" required placeholder="(555) 000-0000" disabled={isSubmitting} />
+                    </div>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input type="tel" id="phone" required placeholder="(555) 000-0000" />
+                    <label htmlFor="message">Message</label>
+                    <textarea id="message" rows="4" required placeholder="How can we help you?" disabled={isSubmitting}></textarea>
                   </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" rows="4" required placeholder="How can we help you?"></textarea>
-                </div>
-                <label className="tc-checkbox-label">
-                  <input type="checkbox" id="tc-contact" required className="tc-checkbox" />
-                  <span>I have read and accept the Terms and Conditions</span>
-                </label>
-                <button type="submit" className="btn-primary form-submit">
-                  Send Message <Send size={18} />
-                </button>
-              </form>
+                  <label className="tc-checkbox-label">
+                    <input type="checkbox" id="tc-contact" required className="tc-checkbox" disabled={isSubmitting} />
+                    <span>I have read and accept the Terms and Conditions</span>
+                  </label>
+                  <button type="submit" className={`btn-primary form-submit ${isSubmitting ? 'loading' : ''}`} disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'} <Send size={18} />
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 

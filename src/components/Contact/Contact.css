@@ -1,4 +1,4 @@
-﻿/* --- Contact Section --- */
+/* --- Contact Section --- */
 .contact-section {
   padding: 60px 0;
   background-color: var(--bg-surface);
@@ -278,3 +278,61 @@
     transform: none !important; /* Force reset any 3D transforms */
   }
 }
+
+/* --- Thank You State --- */
+.thank-you-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.thank-you-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.thank-you-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.success-icon-wrapper {
+  color: #10b981; /* Success Green */
+  animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.thank-you-content h2 {
+  font-size: 2rem;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.thank-you-content p {
+  color: var(--text-muted);
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+/* Loading State for Button */
+.form-submit.loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
