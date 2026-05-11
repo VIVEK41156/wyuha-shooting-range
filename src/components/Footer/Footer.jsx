@@ -3,6 +3,7 @@ import { Globe, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Footer.css';
+import logo from '../../assets/logo.PNG';
 
 // Plugin registered globally in main.jsx
 
@@ -67,7 +68,7 @@ const Footer = () => {
           <div className="footer-col brand-col" ref={addToRefs}>
             <div className="footer-logo-wrapper" ref={logoRef}>
               <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="MVM Mangadu Logo" className="footer-logo" width="160" height="80" loading="lazy" decoding="async" />
+                <img src={logo} alt="MVM Mangadu Logo" className="footer-logo" width="160" height="80" loading="lazy" decoding="async" />
               </a>
             </div>
             <p className="brand-desc">Precision, focus, and excellence. The premier destination for professional tactical training.</p>

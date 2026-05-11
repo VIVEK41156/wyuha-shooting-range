@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './StickyWidget.css';
+import waLogo from '../../assets/wa-logo.PNG';
 
 const StickyWidget = ({ openModal }) => {
   const [visible, setVisible] = useState(true);
@@ -31,7 +32,7 @@ const StickyWidget = ({ openModal }) => {
         className="widget-btn whatsapp-btn"
         aria-label="Contact on WhatsApp"
       >
-        <img src="https://i.ibb.co/Z6ZB6h5z/wa-logo.png" alt="WhatsApp" className="whatsapp-img" width="40" height="40" loading="lazy" decoding="async" />
+        <img src={waLogo} alt="WhatsApp" className="whatsapp-img" width="40" height="40" loading="lazy" decoding="async" />
       </a>
     </div>
   );

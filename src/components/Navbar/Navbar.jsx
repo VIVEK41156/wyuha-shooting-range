@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Home, Info, Target, ShieldAlert, Image as ImageIcon, Phone } from 'lucide-react';
 import './Navbar.css';
+import logo from '../../assets/logo.PNG';
 
 const navLinks = [
   { id: 'home',     label: 'Home',              icon: Home },
@@ -58,7 +59,7 @@ const Navbar = ({ openModal }) => {
           <div className="navbar-logo">
             <a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>
               <img
-                src="https://i.ibb.co/zWRt8HLJ/logo.png"
+                src={logo}
                 alt="MVM Mangadu Logo"
                 className="logo-img"
                 style={{ height: '65px', width: 'auto' }}

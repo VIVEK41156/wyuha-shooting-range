@@ -1,6 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './Preloader.css';
+import logo from '../../assets/logo.PNG';
 
 const Preloader = ({ onComplete }) => {
   const preloaderRef = useRef(null);
@@ -223,7 +224,7 @@ const Preloader = ({ onComplete }) => {
 
       {/* === LOGO & TEXT === */}
       <div className="preloader-brand" ref={logoRef}>
-        <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="Logo" className="preloader-logo" />
+        <img src={logo} alt="Logo" className="preloader-logo" />
       </div>
       <p className="preloader-tagline" ref={taglineRef}>
         Precision. Focus. Excellence.

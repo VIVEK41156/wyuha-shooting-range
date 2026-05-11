@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Contact.css';
+import logo from '../../assets/logo.PNG';
 
 // Plugin registered globally in main.jsx
 
@@ -115,7 +116,7 @@ const Contact = () => {
               {isSubmitted ? (
                 <div className="thank-you-container">
                   <div className="thank-you-content">
-                    <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="Wyuha Logo" className="modal-thank-you-logo" />
+                    <img src={logo} alt="Wyuha Logo" className="modal-thank-you-logo" />
                     <div className="success-icon-wrapper">
                       <CheckCircle2 size={64} className="success-icon" />
                     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle2 } from 'lucide-react';
 import './BookingModal.css';
+import logo from '../../assets/logo.PNG';
 
 const BookingModal = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -87,7 +88,7 @@ const BookingModal = ({ isOpen, onClose }) => {
             <div className="modal-content">
               {isSubmitted ? (
                 <div className="modal-thank-you">
-                  <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="Wyuha Logo" className="modal-thank-you-logo" />
+                  <img src={logo} alt="Wyuha Logo" className="modal-thank-you-logo" />
                   <div className="success-icon-wrapper">
                     <CheckCircle2 size={64} className="success-icon" />
                   </div>
