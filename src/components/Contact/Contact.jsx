@@ -109,30 +109,57 @@ const Contact = () => {
             </div>
 
             <div className="contact-form-container" ref={formRef}>
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const data = {
+                  fullName: form.name.value,
+                  email: form.email.value,
+                  phone: form.phone.value,
+                  message: form.message.value,
+                  termsAccepted: form['tc-contact'].checked
+                };
+                
+                try {
+                  const res = await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                  });
+                  if (!res.ok) {
+                     const errData = await res.json();
+                     alert("Error: " + JSON.stringify(errData));
+                  } else {
+                     alert("Message sent successfully!");
+                     form.reset();
+                  }
+                } catch(err) {
+                  alert("Failed to connect to the server.");
+                }
+              }}>
                 <div className="form-group">
                   <label htmlFor="name">Full Name</label>
-                  <input type="text" id="name" placeholder="John Doe" />
+                  <input type="text" id="name" required placeholder="John Doe" />
                 </div>
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="email">Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com" />
+                    <input type="email" id="email" required placeholder="john@example.com" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="(555) 000-0000" />
+                    <input type="tel" id="phone" required placeholder="(555) 000-0000" />
                   </div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
-                  <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+                  <textarea id="message" rows="4" required placeholder="How can we help you?"></textarea>
                 </div>
                 <label className="tc-checkbox-label">
-                  <input type="checkbox" id="tc-contact" className="tc-checkbox" />
+                  <input type="checkbox" id="tc-contact" required className="tc-checkbox" />
                   <span>I have read and accept the Terms and Conditions</span>
                 </label>
-                <button type="button" className="btn-primary form-submit">
+                <button type="submit" className="btn-primary form-submit">
                   Send Message <Send size={18} />
                 </button>
               </form>
