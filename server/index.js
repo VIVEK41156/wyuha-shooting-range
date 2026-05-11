@@ -66,19 +66,26 @@ pool.connect()
   });
 
 // Nodemailer setup
+// Nodemailer setup
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // Use TLS
+  port: 465,
+  secure: true, // Use SSL
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
   tls: {
-    // Do not fail on invalid certificates
-    rejectUnauthorized: false
+    rejectUnauthorized: false,
+    servername: 'smtp.gmail.com'
   },
-  family: 4 // FORCE IPv4 ONLY
+  // Deep force IPv4
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
+  dns: {
+    family: 4
+  }
 });
 
 // Verify connection configuration
