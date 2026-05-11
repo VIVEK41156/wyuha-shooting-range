@@ -136,7 +136,8 @@ app.post('/api/contact', async (req, res) => {
     await pool.query(query, values);
     
     // 3. Send Email Notification
-    await sendNotificationEmail('Contact', validatedData);
+    // 3. Send Email Notification (in background, don't await)
+    sendNotificationEmail('Contact', validatedData);
 
     // 4. Respond with success
     res.status(201).json({ message: 'Contact message received successfully' });
@@ -166,7 +167,8 @@ app.post('/api/booking', async (req, res) => {
     await pool.query(query, values);
     
     // 3. Send Email Notification
-    await sendNotificationEmail('Booking Inquiry', validatedData);
+    // 3. Send Email Notification (in background, don't await)
+    sendNotificationEmail('Booking Inquiry', validatedData);
 
     // 4. Respond with success
     res.status(201).json({ message: 'Booking inquiry received successfully' });
