@@ -101,25 +101,27 @@ const sendNotificationEmail = async (type, data) => {
   if (!process.env.RECEIVER_EMAIL) return; // Skip if no receiver is configured
 
   const mailOptions = {
-    from: `"Wyuha Notifications" <${process.env.SMTP_USER}>`,
+    from: process.env.SMTP_USER, // Simplest form often works best for Gmail
     to: process.env.RECEIVER_EMAIL,
     subject: `New ${type} Submission from ${data.fullName}`,
     html: `
-      <h2>New ${type} Submission</h2>
-      <p><strong>Name:</strong> ${data.fullName}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Phone:</strong> ${data.phone}</p>
-      <p><strong>Message:</strong><br/>${data.message}</p>
-      <hr/>
-      <p><small>Submitted via ${type} form at ${new Date().toLocaleString()}</small></p>
+      <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
+        <h2 style="color: #7a0f18;">New ${type} Submission</h2>
+        <p><strong>Name:</strong> ${data.fullName}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Message:</strong><br/>${data.message}</p>
+        <hr/>
+        <p><small>Submitted via ${type} form at ${new Date().toLocaleString()}</small></p>
+      </div>
     `,
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    console.log(`Notification email sent for ${type}`);
+    const info = await transporter.sendMail(mailOptions);
+    console.log(`Notification email sent: ${info.messageId}`);
   } catch (err) {
-    console.error('Error sending email:', err);
+    console.error('CRITICAL EMAIL ERROR:', err.message);
   }
 };
 
