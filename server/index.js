@@ -77,7 +77,8 @@ const transporter = nodemailer.createTransport({
   tls: {
     // Do not fail on invalid certificates
     rejectUnauthorized: false
-  }
+  },
+  family: 4 // FORCE IPv4 ONLY
 });
 
 // Verify connection configuration
