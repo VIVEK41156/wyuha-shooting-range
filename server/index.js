@@ -65,55 +65,49 @@ pool.connect()
     console.error('Error connecting to the database', err.stack);
   });
 
-// Nodemailer setup
-const transporter = nodemailer.createTransport({
-  host: '74.125.130.108', // Direct IPv4 address for smtp.gmail.com
-  port: 465,
-  secure: true, // Use SSL
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false,
-    servername: 'smtp.gmail.com'
-  }
-});
-
-// Verify connection configuration
-transporter.verify(function (error, success) {
-  if (error) {
-    console.error('SMTP Connection Error:', error);
-  } else {
-    console.log('SMTP Server is ready to take our messages');
-  }
-});
-
+// Resend Email Notification function
 const sendNotificationEmail = async (type, data) => {
-  if (!process.env.RECEIVER_EMAIL) return; // Skip if no receiver is configured
+  const RESEND_API_KEY = process.env.RESEND_API_KEY;
+  const RECEIVER_EMAIL = process.env.RECEIVER_EMAIL;
 
-  const mailOptions = {
-    from: process.env.SMTP_USER, // Simplest form often works best for Gmail
-    to: process.env.RECEIVER_EMAIL,
-    subject: `New ${type} Submission from ${data.fullName}`,
-    html: `
-      <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
-        <h2 style="color: #7a0f18;">New ${type} Submission</h2>
-        <p><strong>Name:</strong> ${data.fullName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Message:</strong><br/>${data.message}</p>
-        <hr/>
-        <p><small>Submitted via ${type} form at ${new Date().toLocaleString()}</small></p>
-      </div>
-    `,
-  };
+  if (!RESEND_API_KEY || !RECEIVER_EMAIL) {
+    console.error('Missing Resend API Key or Receiver Email');
+    return;
+  }
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log(`Notification email sent: ${info.messageId}`);
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: 'Wyuha <onboarding@resend.dev>',
+        to: RECEIVER_EMAIL,
+        subject: `New ${type} Submission from ${data.fullName}`,
+        html: `
+          <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px; max-width: 600px;">
+            <h2 style="color: #7a0f18; border-bottom: 2px solid #7a0f18; padding-bottom: 10px;">New ${type}</h2>
+            <p style="font-size: 16px;"><strong>Name:</strong> ${data.fullName}</p>
+            <p style="font-size: 16px;"><strong>Email:</strong> ${data.email}</p>
+            <p style="font-size: 16px;"><strong>Phone:</strong> ${data.phone}</p>
+            <p style="font-size: 16px; background: #f9f9f9; padding: 15px; border-radius: 5px;"><strong>Message:</strong><br/>${data.message}</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+            <p style="color: #666; font-size: 12px;">Submitted via Wyuha Shooting Range at ${new Date().toLocaleString()}</p>
+          </div>
+        `,
+      }),
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      console.log('Notification email sent via Resend:', result.id);
+    } else {
+      console.error('Resend API Error:', result);
+    }
   } catch (err) {
-    console.error('CRITICAL EMAIL ERROR:', err.message);
+    console.error('CRITICAL RESEND ERROR:', err.message);
   }
 };
 
