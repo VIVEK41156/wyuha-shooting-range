@@ -83,18 +83,26 @@ const sendNotificationEmail = async (type, data) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Wyuha <onboarding@resend.dev>',
+        from: 'Wyuha Notifications <notifications@wyuha.com>',
         to: RECEIVER_EMAIL,
         subject: `New ${type} Submission from ${data.fullName}`,
         html: `
-          <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px; max-width: 600px;">
-            <h2 style="color: #7a0f18; border-bottom: 2px solid #7a0f18; padding-bottom: 10px;">New ${type}</h2>
-            <p style="font-size: 16px;"><strong>Name:</strong> ${data.fullName}</p>
-            <p style="font-size: 16px;"><strong>Email:</strong> ${data.email}</p>
-            <p style="font-size: 16px;"><strong>Phone:</strong> ${data.phone}</p>
-            <p style="font-size: 16px; background: #f9f9f9; padding: 15px; border-radius: 5px;"><strong>Message:</strong><br/>${data.message}</p>
+          <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px; max-width: 600px; background-color: #ffffff;">
+            <div style="background-color: #000; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+              <img src="https://i.ibb.co/zWRt8HLJ/logo.png" alt="Wyuha Logo" style="height: 60px;" />
+            </div>
+            <div style="padding: 20px;">
+              <h2 style="color: #7a0f18; border-bottom: 2px solid #7a0f18; padding-bottom: 10px; margin-top: 0;">New ${type} Lead</h2>
+              <p style="font-size: 16px;"><strong>Name:</strong> ${data.fullName}</p>
+              <p style="font-size: 16px;"><strong>Email:</strong> ${data.email}</p>
+              <p style="font-size: 16px;"><strong>Phone:</strong> ${data.phone}</p>
+              <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 4px solid #7a0f18;">
+                <p style="margin: 0; font-weight: bold; color: #7a0f18;">Message:</p>
+                <p style="margin-top: 10px; line-height: 1.6;">${data.message}</p>
+              </div>
+            </div>
             <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="color: #666; font-size: 12px;">Submitted via Wyuha Shooting Range at ${new Date().toLocaleString()}</p>
+            <p style="color: #666; font-size: 12px; text-align: center;">This lead was captured via the Wyuha Shooting Range official website.</p>
           </div>
         `,
       }),
