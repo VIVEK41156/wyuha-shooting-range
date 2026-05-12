@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    PRELOADER — Full screen takeover
    ============================================ */
 .preloader {
@@ -124,8 +124,10 @@
 .preloader-brand {
   position: absolute;
   bottom: 22%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
   transform-style: preserve-3d;
   will-change: transform, opacity;
 }
@@ -139,14 +141,14 @@
 .preloader-tagline {
   position: absolute;
   bottom: 14%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  text-align: center;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: rgba(122, 15, 24, 0.8);
-  white-space: nowrap;
   will-change: opacity, transform;
 }
 
