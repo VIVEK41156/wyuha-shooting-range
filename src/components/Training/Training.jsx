@@ -20,7 +20,7 @@ const programs = [
     id: 'intermediate',
     title: 'Intermediate Module',
     subtitle: 'Tactical Dynamics',
-    description: 'Elevate your skills from static shooting to dynamic movement. Focus on rapid target acquisition, barricade drills, and handling modern sporting rifles under controlled stress.',
+    description: 'Refine your accuracy and elevate your skills. Designed for aspiring shooters, our intermediate training module focuses intensely on breathing and trigger control',
     icon: Zap,
     image: '/training_intermediate_perfect.png',
   },
@@ -28,7 +28,7 @@ const programs = [
     id: 'competitive',
     title: 'Competitive Module',
     subtitle: 'Elite Precision',
-    description: 'Refine your accuracy to a surgical level. Designed for aspiring competitive shooters and snipers. Focuses intensely on breathing, trigger control, and advanced ballistics over long distances.',
+    description: 'From the first shot to the world stage, we provide elite-level training for those aiming for the global podium. Nurturing Olympic dreams by guiding athletes at every stage - as far as their ambition takes them. The sky is the limit.',
     icon: Crosshair,
     image: '/training_competitive_new.png',
   }
