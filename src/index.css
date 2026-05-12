@@ -3,7 +3,7 @@
 :root {
   --color-primary: #7A0F18;
   --color-primary-dark: #5a0a11;
-  --color-primary-light: #f5d0d2;
+  --color-primary-light: #e04055;
   --color-accent: #47bfff;
   --bg-dark: #0a0a0c;
   --bg-surface: #141418;
@@ -12,7 +12,7 @@
   --text-main: #ffffff;
   --text-muted: #a1a1aa;
   --border-glass: rgba(255, 255, 255, 0.08);
-  --shadow-neon: 0 0 15px rgba(245, 208, 210, 0.5);
+  --shadow-neon: 0 0 15px rgba(224, 64, 85, 0.5);
   --shadow-neon-accent: 0 0 15px rgba(71, 191, 255, 0.5);
 }
 
