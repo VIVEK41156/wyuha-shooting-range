@@ -86,7 +86,15 @@ const About = () => {
       );
       
       // Card disappears immediately upon further scrolling
-      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 0.5, ease: 'power2.in' }, '+=0');
+      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 0.5, ease: 'power2.in' }, '+=0.2');
+      
+      tl.fromTo('.about-card-2',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+        '-=0.2'
+      );
+      
+      tl.to('.about-card-2', { opacity: 0, y: -50, duration: 0.5, ease: 'power2.in' }, '+=0.2');
       
       tl.set('.layer-coaches', { y: 0, opacity: 1 }, '<');
 
@@ -102,12 +110,6 @@ const About = () => {
         );
         tl.to(selector, { opacity: 0, yPercent: -150, scale: 0.8, duration: 2, ease: 'power2.in' }, '+=1.5');
       });
-      
-      tl.fromTo('.about-card-2',
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 2, ease: 'power2.out' },
-        '-=0.5'
-      );
       
       tl.to({}, { duration: 1 });
     });
