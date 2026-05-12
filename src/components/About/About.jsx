@@ -67,7 +67,7 @@ const About = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=2500',
+          end: '+=4500',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -75,34 +75,39 @@ const About = () => {
       });
 
       tl.fromTo('.layer-lanes-img',
-        { scale: 1, z: 0, opacity: 0.3 },
-        { scale: 1.1, z: 20, opacity: 0.6, duration: 2, ease: 'power1.inOut' }
-      )
-      .fromTo('.about-card-1',
-        { opacity: 0, y: 50, rotationX: -10 },
-        { opacity: 1, y: 0, rotationX: 0, duration: 1.5, ease: 'back.out(1.4)' },
-        '<0.5'
-      )
-      .to('.about-card-1', { opacity: 0, y: -80, rotationX: 10, duration: 1.5, ease: 'power1.in' }, '+=0.5')
+        { scale: 1, opacity: 0.3 },
+        { scale: 1.2, opacity: 0.1, duration: 20, ease: 'none' }
+      );
       
-      .fromTo('.layer-coaches',
-        { y: '80%', opacity: 0 },
-        { y: '0%', opacity: 1, duration: 2, ease: 'power2.out' },
-        '<'
-      )
-      .fromTo('.img-1', { yPercent: 150, z: -200, rotation: 0, opacity: 0 }, { yPercent: -120, z: 0, rotation: -12, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.2')
-      .fromTo('.img-2', { yPercent: 100, z: -150, rotation: 0, opacity: 0 }, { yPercent: -60, z: 10, rotation: 8, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-      .fromTo('.img-3', { yPercent: 50,  z: -100, rotation: 0, opacity: 0 }, { yPercent: 0,    z: 20, rotation: -5, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-      .fromTo('.img-4', { yPercent: 0,   z: -50,  rotation: 0, opacity: 0 }, { yPercent: 60,   z: 30, rotation: 6,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-      .fromTo('.img-6', { yPercent: -50, z: 0,    rotation: 0, opacity: 0 }, { yPercent: 120,  z: 40, rotation: -3, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      tl.fromTo('.about-card-1',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 2, ease: 'power2.out' },
+        0.5
+      );
       
-      .to('.layer-lanes-img', { opacity: 0.1, duration: 1 }, '<')
-      .fromTo('.about-card-2',
-        { opacity: 0, y: 50, rotationX: -10 },
-        { opacity: 1, y: 0, rotationX: 0, duration: 1.5, ease: 'power2.out' },
-        '-=1.2'
-      )
-      .to({}, { duration: 1 });
+      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 2, ease: 'power2.in' }, '+=2');
+      
+      tl.set('.layer-coaches', { y: 0, opacity: 1 }, '<');
+
+      const photos = ['.img-1', '.img-2', '.img-3', '.img-4', '.img-6'];
+      
+      photos.forEach((selector, index) => {
+        const delay = index === 0 ? '-=0.5' : '-=1.0';
+        tl.fromTo(selector, 
+          { opacity: 0, yPercent: 50, xPercent: -50, scale: 0.8 },
+          { opacity: 1, yPercent: -50, xPercent: -50, scale: 1, duration: 2, ease: 'power2.out' },
+          delay
+        );
+        tl.to(selector, { opacity: 0, yPercent: -150, scale: 0.8, duration: 2, ease: 'power2.in' }, '+=1.5');
+      });
+      
+      tl.fromTo('.about-card-2',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 2, ease: 'power2.out' },
+        '-=0.5'
+      );
+      
+      tl.to({}, { duration: 1 });
     });
 
   }, { scope: containerRef });

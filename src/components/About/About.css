@@ -228,17 +228,19 @@
   }
   
   .collage-img {
-    width: 220px;
-    height: 150px;
-    border-radius: 8px;
-    border-width: 3px;
+    width: 90vw;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 3/2;
+    border-radius: 12px;
+    border-width: 4px;
+    opacity: 0; /* Hidden initially, controlled by GSAP */
   }
 
   .img-1, .img-2, .img-3, .img-4, .img-6 {
-    top: 45%;
+    top: 50%;
     left: 50%;
-    margin-left: -110px;
-    margin-top: -75px;
+    margin: 0;
     transform: none;
   }
   
