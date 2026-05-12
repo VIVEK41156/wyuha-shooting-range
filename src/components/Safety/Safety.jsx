@@ -81,7 +81,7 @@ const Safety = () => {
   return (
     <section id="safety" className="safety-3d-wrapper" ref={containerRef}>
       <div className="safety-bg-container">
-        <img src="/safety_bg_new.png" alt="Professional Air Weapons Range" className="safety-bg-img" loading="lazy" decoding="async" />
+        <img src="/safety_bg_weapons.png" alt="Professional Air Weapons Equipment" className="safety-bg-img" loading="lazy" decoding="async" />
         <div className="safety-gradient-overlay"></div>
       </div>
 
