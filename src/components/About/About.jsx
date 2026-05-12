@@ -122,11 +122,11 @@ const About = () => {
       <div className="parallax-layer layer-coaches">
         <div className="coaches-img-wrapper about-collage">
           <div className="collage-inner">
-            <img src={img1} alt="Facility 1" className="collage-img img-1" />
-            <img src={img2} alt="Facility 2" className="collage-img img-2" />
-            <img src={img3} alt="Facility 3" className="collage-img img-3" />
-            <img src={img4} alt="Facility 4" className="collage-img img-4" />
-            <img src={img6} alt="Facility 6" className="collage-img img-6" />
+            <img src={img1} alt="Facility 1" className="collage-img img-1" width="300" height="400" loading="lazy" decoding="async" />
+            <img src={img2} alt="Facility 2" className="collage-img img-2" width="300" height="400" loading="lazy" decoding="async" />
+            <img src={img3} alt="Facility 3" className="collage-img img-3" width="300" height="400" loading="lazy" decoding="async" />
+            <img src={img4} alt="Facility 4" className="collage-img img-4" width="300" height="400" loading="lazy" decoding="async" />
+            <img src={img6} alt="Facility 6" className="collage-img img-6" width="300" height="400" loading="lazy" decoding="async" />
           </div>
           <div className="coaches-gradient"></div>
         </div>

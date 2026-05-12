@@ -56,6 +56,8 @@ const Hero = ({ openModal }) => {
           muted
           loop
           playsInline
+          preload="auto"
+          fetchpriority="high"
         ></video>
         <div className="hero-overlay"></div>
       </div>

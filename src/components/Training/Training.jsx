@@ -99,7 +99,7 @@ const Training = () => {
           return (
             <div key={program.id} className="training-panel">
               <div className="panel-image">
-                <img src={program.image} alt={program.title} loading="lazy" decoding="async" />
+                <img src={program.image} alt={program.title} width="800" height="1000" loading="lazy" decoding="async" />
                 <div className="panel-gradient"></div>
               </div>
               <div className="panel-content glass-dark">

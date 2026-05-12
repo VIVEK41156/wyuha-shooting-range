@@ -224,7 +224,7 @@ const Preloader = ({ onComplete }) => {
 
       {/* === LOGO & TEXT === */}
       <div className="preloader-brand" ref={logoRef}>
-        <img src={logo} alt="Logo" className="preloader-logo" />
+        <img src={logo} alt="Logo" className="preloader-logo" width="200" height="60" fetchpriority="high" />
       </div>
       <p className="preloader-tagline" ref={taglineRef}>
         Precision. Focus. Excellence.
