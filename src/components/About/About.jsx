@@ -115,7 +115,7 @@ const About = () => {
   return (
     <section id="about" className="about-3d-wrapper" ref={containerRef}>
       <div className="parallax-layer layer-bg">
-        <img src="/school_range_bg.png" alt="School Shooting Range" className="layer-lanes-img" loading="lazy" decoding="async" />
+        <img src="/school_range_bg_clean.png" alt="School Shooting Range" className="layer-lanes-img" loading="lazy" decoding="async" />
         <div className="layer-overlay dark-wood-overlay"></div>
       </div>
 
