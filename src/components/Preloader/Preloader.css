@@ -148,7 +148,7 @@
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(122, 15, 24, 0.8);
+  color: var(--color-primary-light);
   will-change: opacity, transform;
 }
 

@@ -88,11 +88,11 @@
   letter-spacing: -1px;
   margin-bottom: 24px;
   text-transform: uppercase;
-  color: var(--text-main);
+  color: var(--color-primary-light);
 }
 
 .hero-title .highlight {
-  color: var(--color-primary);
+  color: var(--text-main);
   text-shadow: var(--shadow-neon);
 }
 

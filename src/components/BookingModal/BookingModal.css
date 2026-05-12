@@ -51,7 +51,7 @@
 .modal-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--color-primary-light);
   margin-bottom: 24px;
   text-align: center;
   text-transform: uppercase;

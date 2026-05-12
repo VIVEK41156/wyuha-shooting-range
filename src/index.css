@@ -12,7 +12,7 @@
   --text-main: #ffffff;
   --text-muted: #a1a1aa;
   --border-glass: rgba(255, 255, 255, 0.08);
-  --shadow-neon: 0 0 15px rgba(122, 15, 24, 0.5);
+  --shadow-neon: 0 0 15px rgba(245, 208, 210, 0.5);
   --shadow-neon-accent: 0 0 15px rgba(71, 191, 255, 0.5);
 }
 
@@ -84,7 +84,7 @@ ul {
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.5px;
-  color: var(--text-main);
+  color: var(--color-primary-light);
   margin-bottom: 16px;
 }
 
@@ -96,7 +96,7 @@ ul {
 }
 
 .highlight {
-  color: var(--color-primary);
+  color: var(--text-main);
 }
 
 .text-center { text-align: center; }
