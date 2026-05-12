@@ -67,7 +67,7 @@ const About = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=4500',
+          end: '+=4000',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -85,8 +85,8 @@ const About = () => {
         0.5
       );
       
-      // Reduced gap before card leaves from +=2 to +=0.5
-      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 2, ease: 'power2.in' }, '+=0.5');
+      // Card disappears immediately upon further scrolling
+      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 1, ease: 'power2.in' }, '+=0');
       
       tl.set('.layer-coaches', { y: 0, opacity: 1 }, '<');
 
