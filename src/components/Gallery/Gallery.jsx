@@ -8,7 +8,7 @@ import img1 from '../../assets/image-1.webp';
 import img2 from '../../assets/image-2.webp';
 import img3 from '../../assets/image-3.webp';
 import img4 from '../../assets/image-4.webp';
-import img5 from '../../assets/image-5.webp';
+
 import img6 from '../../assets/image-6.webp';
 
 const galleryImages = [
@@ -16,7 +16,7 @@ const galleryImages = [
   { id: 2, url: img2 },
   { id: 3, url: img3 },
   { id: 4, url: img4 },
-  { id: 5, url: img5 },
+
   { id: 6, url: img6 },
 ];
 
