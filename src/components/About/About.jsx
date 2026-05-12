@@ -67,7 +67,7 @@ const About = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=4000',
+          end: '+=4500',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -81,12 +81,12 @@ const About = () => {
       
       tl.fromTo('.about-card-1',
         { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 2, ease: 'power2.out' },
-        0.5
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+        0.1
       );
       
       // Card disappears immediately upon further scrolling
-      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 1, ease: 'power2.in' }, '+=0');
+      tl.to('.about-card-1', { opacity: 0, y: -50, duration: 0.5, ease: 'power2.in' }, '+=0');
       
       tl.set('.layer-coaches', { y: 0, opacity: 1 }, '<');
 
