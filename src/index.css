@@ -14,6 +14,7 @@
   --border-glass: rgba(255, 255, 255, 0.08);
   --shadow-neon: 0 0 15px rgba(224, 64, 85, 0.5);
   --shadow-neon-accent: 0 0 15px rgba(71, 191, 255, 0.5);
+  --btn-gradient: linear-gradient(90deg, #2d0308 0%, #7a0f18 18%, #b82535 42%, #e04055 50%, #b82535 58%, #7a0f18 82%, #2d0308 100%);
 }
 
 *, *::before, *::after {
@@ -102,3 +103,19 @@ ul {
 .text-center { text-align: center; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 .mt-8 { margin-top: 32px; }
+
+/* Global Button Style Override */
+.hero-btn, .btn-glass, .btn-primary, .modal-submit, .form-submit, .contact-btn, .navbar-cta {
+  background: var(--btn-gradient) !important;
+  color: #ffffff !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+.hero-btn:hover, .btn-glass:hover, .btn-primary:hover, .modal-submit:hover, .form-submit:hover, .contact-btn:hover, .navbar-cta:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(122, 15, 24, 0.4) !important;
+}
+
