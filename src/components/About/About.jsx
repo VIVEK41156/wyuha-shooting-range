@@ -67,7 +67,7 @@ const About = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=4500',
+          end: '+=2500',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -92,13 +92,13 @@ const About = () => {
       const photos = ['.img-1', '.img-2', '.img-3', '.img-4', '.img-6'];
       
       photos.forEach((selector, index) => {
-        const delay = index === 0 ? '-=0.5' : '-=1.0';
+        const delay = index === 0 ? '<' : '-=1.8';
         tl.fromTo(selector, 
-          { opacity: 0, yPercent: 50, xPercent: -50, scale: 0.8 },
-          { opacity: 1, yPercent: -50, xPercent: -50, scale: 1, duration: 2, ease: 'power2.out' },
+          { opacity: 0, yPercent: 80, xPercent: -50, scale: 0.8 },
+          { opacity: 1, yPercent: -50, xPercent: -50, scale: 1, duration: 1.5, ease: 'power2.out' },
           delay
         );
-        tl.to(selector, { opacity: 0, yPercent: -150, scale: 0.8, duration: 2, ease: 'power2.in' }, '+=1.5');
+        tl.to(selector, { opacity: 0, yPercent: -150, scale: 0.8, duration: 1.5, ease: 'power2.in' }, '+=0.2');
       });
       
       tl.fromTo('.about-card-2',
