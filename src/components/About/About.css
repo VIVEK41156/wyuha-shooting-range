@@ -218,15 +218,28 @@
     max-width: calc(100% - 40px); /* 20px padding on each side */
     left: 20px;
     padding: 30px 20px;
+    z-index: 10;
   }
   
   .coaches-img-wrapper {
     width: 100%;
+    height: 100%;
     margin-right: 0;
   }
   
-  .coaches-img-wrapper img {
-    border-radius: 0;
+  .collage-img {
+    width: 220px;
+    height: 150px;
+    border-radius: 8px;
+    border-width: 3px;
+  }
+
+  .img-1, .img-2, .img-3, .img-4, .img-6 {
+    top: 45%;
+    left: 50%;
+    margin-left: -110px;
+    margin-top: -75px;
+    transform: none;
   }
   
   .card-desc, .electronic-desc {

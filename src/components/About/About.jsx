@@ -17,46 +17,93 @@ const About = () => {
   const containerRef = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: '+=3000',
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      }
+    let mm = gsap.matchMedia(containerRef);
+
+    // --- Desktop Animation ---
+    mm.add("(min-width: 769px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: '+=3000',
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
+
+      tl.fromTo('.layer-lanes-img',
+        { scale: 1, z: 0, opacity: 0.4 },
+        { scale: 1.15, z: 50, opacity: 0.7, duration: 2, ease: 'power1.inOut' }
+      )
+      .fromTo('.about-card-1',
+        { opacity: 0, y: 100, rotationX: -15 },
+        { opacity: 1, y: 0, rotationX: 0, duration: 1.5, ease: 'back.out(1.7)' },
+        '<0.5'
+      )
+      .to('.about-card-1', { opacity: 0, y: -100, rotationX: 15, duration: 1.5, ease: 'power1.in' }, '+=1')
+      .fromTo('.layer-coaches',
+        { y: '100%', opacity: 0, scale: 0.8 },
+        { y: '10%', opacity: 1, scale: 1, duration: 2.5, ease: 'power2.out' },
+        '<'
+      )
+      .fromTo('.img-1', { x: -200, y: -200, rotation: -45, opacity: 0 }, { x: 0, y: 0, rotation: -8, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.2')
+      .fromTo('.img-2', { x: 200,  y: -200, rotation: 45,  opacity: 0 }, { x: 0, y: 0, rotation: 5,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .fromTo('.img-3', { x: -300, y: 0,    rotation: -30, opacity: 0 }, { x: 0, y: 0, rotation: 3,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .fromTo('.img-4', { x: 300,  y: 0,    rotation: 30,  opacity: 0 }, { x: 0, y: 0, rotation: -5, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .fromTo('.img-6', { x: 200,  y: 200,  rotation: 60,  opacity: 0 }, { x: 0, y: 0, rotation: -3, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .to('.layer-lanes-img', { opacity: 0.2, duration: 1 }, '<')
+      .fromTo('.about-card-2',
+        { opacity: 0, x: -100, rotationY: -15 },
+        { opacity: 1, x: 0, rotationY: 0, duration: 1.5, ease: 'power2.out' },
+        '-=1.5'
+      )
+      .to({}, { duration: 1 });
     });
 
-    tl.fromTo('.layer-lanes-img',
-      { scale: 1, z: 0, opacity: 0.4 },
-      { scale: 1.15, z: 50, opacity: 0.7, duration: 2, ease: 'power1.inOut' }
-    )
-    .fromTo('.about-card-1',
-      { opacity: 0, y: 100, rotationX: -15 },
-      { opacity: 1, y: 0, rotationX: 0, duration: 1.5, ease: 'back.out(1.7)' },
-      '<0.5'
-    )
-    .to('.about-card-1', { opacity: 0, y: -100, rotationX: 15, duration: 1.5, ease: 'power1.in' }, '+=1')
-    .fromTo('.layer-coaches',
-      { y: '100%', opacity: 0, scale: 0.8 },
-      { y: '10%', opacity: 1, scale: 1, duration: 2.5, ease: 'power2.out' },
-      '<'
-    )
-    // --- Collage Assembly Animation ---
-    .fromTo('.img-1', { x: -200, y: -200, rotation: -45, opacity: 0 }, { x: 0, y: 0, rotation: -8, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.2')
-    .fromTo('.img-2', { x: 200,  y: -200, rotation: 45,  opacity: 0 }, { x: 0, y: 0, rotation: 5,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-    .fromTo('.img-3', { x: -300, y: 0,    rotation: -30, opacity: 0 }, { x: 0, y: 0, rotation: 3,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-    .fromTo('.img-4', { x: 300,  y: 0,    rotation: 30,  opacity: 0 }, { x: 0, y: 0, rotation: -5, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-    .fromTo('.img-6', { x: 200,  y: 200,  rotation: 60,  opacity: 0 }, { x: 0, y: 0, rotation: -3, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
-    // ----------------------------------
-    .to('.layer-lanes-img', { opacity: 0.2, duration: 1 }, '<')
-    .fromTo('.about-card-2',
-      { opacity: 0, x: -100, rotationY: -15 },
-      { opacity: 1, x: 0, rotationY: 0, duration: 1.5, ease: 'power2.out' },
-      '-=1.5'
-    )
-    .to({}, { duration: 1 });
+    // --- Mobile Animation ---
+    mm.add("(max-width: 768px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: '+=2500',
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
+
+      tl.fromTo('.layer-lanes-img',
+        { scale: 1, z: 0, opacity: 0.3 },
+        { scale: 1.1, z: 20, opacity: 0.6, duration: 2, ease: 'power1.inOut' }
+      )
+      .fromTo('.about-card-1',
+        { opacity: 0, y: 50, rotationX: -10 },
+        { opacity: 1, y: 0, rotationX: 0, duration: 1.5, ease: 'back.out(1.4)' },
+        '<0.5'
+      )
+      .to('.about-card-1', { opacity: 0, y: -80, rotationX: 10, duration: 1.5, ease: 'power1.in' }, '+=0.5')
+      
+      .fromTo('.layer-coaches',
+        { y: '80%', opacity: 0 },
+        { y: '0%', opacity: 1, duration: 2, ease: 'power2.out' },
+        '<'
+      )
+      .fromTo('.img-1', { yPercent: 150, z: -200, rotation: 0, opacity: 0 }, { yPercent: -120, z: 0, rotation: -12, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.2')
+      .fromTo('.img-2', { yPercent: 100, z: -150, rotation: 0, opacity: 0 }, { yPercent: -60, z: 10, rotation: 8, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .fromTo('.img-3', { yPercent: 50,  z: -100, rotation: 0, opacity: 0 }, { yPercent: 0,    z: 20, rotation: -5, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .fromTo('.img-4', { yPercent: 0,   z: -50,  rotation: 0, opacity: 0 }, { yPercent: 60,   z: 30, rotation: 6,  opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      .fromTo('.img-6', { yPercent: -50, z: 0,    rotation: 0, opacity: 0 }, { yPercent: 120,  z: 40, rotation: -3, opacity: 1, duration: 2, ease: 'power3.out' }, '<0.1')
+      
+      .to('.layer-lanes-img', { opacity: 0.1, duration: 1 }, '<')
+      .fromTo('.about-card-2',
+        { opacity: 0, y: 50, rotationX: -10 },
+        { opacity: 1, y: 0, rotationX: 0, duration: 1.5, ease: 'power2.out' },
+        '-=1.2'
+      )
+      .to({}, { duration: 1 });
+    });
 
   }, { scope: containerRef });
 
