@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Crosshair, ChevronRight } from 'lucide-react';
-import heroBgVideo from '../../assets/hero.bg.mp4';
+import heroBgVideo from '../../assets/herobg.mp4';
 import './Hero.css';
 
 // Plugin registered globally in main.jsx
